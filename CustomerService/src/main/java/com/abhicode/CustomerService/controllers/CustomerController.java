@@ -18,6 +18,7 @@ public class CustomerController {
 
     @PostMapping("/save")
     public void saveCustomer(@RequestBody Customer c){
+          System.out.println("Saving new customer");
           customerService.saveCustomer(c);
     }
 
