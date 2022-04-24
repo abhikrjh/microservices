@@ -1,0 +1,25 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: API-GATEWAY
+
+  cloud:
+    gateway:
+      routes:
+        - id: CUSTOMER-SERVICE
+          uri:
+            lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/customers/**
+        - id: PRODUCT-SERVICE
+          uri:
+            lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/products/**
+        - id: MY-ORDER-SERVICE
+          uri:
+            lb://MY-ORDER-SERVICE
+          predicates:
+            - Path=/order/**
